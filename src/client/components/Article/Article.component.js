@@ -64,11 +64,7 @@ export class Article extends React.Component {
     }
 
     return (
-      <PageLayout
-        searchState={this.props.searchState}
-        searchActions={this.props.searchActions}
-        profileState={this.props.profileState}
-        globalState={this.props.globalState}>
+      <PageLayout state={this.props.state}>
         {content}
       </PageLayout>
     );
@@ -88,19 +84,13 @@ Article.propTypes = {
 export default connect(
   // Map redux state to group prop
   (state) => {
-    return {
-      profileState: state.profileReducer,
-      searchState: state.searchReducer,
-      widgetState: state.widgetReducer,
-      globalState: state.globalReducer
-    };
+    return state;
   },
 
   // Map group actions to actions props
   (dispatch) => {
     return {
-      searchActions: bindActionCreators(searchActions, dispatch),
-      widgetActions: bindActionCreators(widgetActions, dispatch)
+      actions: bindActionCreators(actions, dispatch),
     };
   }
-)(Article);
+)(Component);
