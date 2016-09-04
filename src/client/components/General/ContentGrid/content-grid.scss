@@ -1,0 +1,48 @@
+@import 'tools';
+
+.content-grid {
+
+  @include min-screen($phone - 1px) {
+    @include container();
+  }
+
+  padding: 30px;
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+  }
+
+}
+
+.content-grid-element {
+
+  @include min-screen($phone) {
+    @include gallery(1 of 2);
+  }
+
+  @include min-screen($tablet) {
+    @include gallery(1 of 3);
+  }
+
+  a {
+    color: $black;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin:0px;
+  }
+
+  p {
+    font-size: 0.8rem;
+    margin-top:3px;
+    margin-bottom:40px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+}

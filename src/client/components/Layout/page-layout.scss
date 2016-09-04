@@ -1,0 +1,10 @@
+@import 'tools';
+@import 'global';
+
+.container {
+  @include container;
+}
+
+.content {
+  @include span(24);
+}

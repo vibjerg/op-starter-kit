@@ -1,0 +1,30 @@
+@import 'tools';
+
+.group--tile {
+  .icon {
+    fill: currentColor;
+  }
+
+  .icon--container {
+    padding-right: 5px;
+    vertical-align: middle;
+  }
+  .group--title {
+    color: $governor-bay;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .coverimage {
+    @extend %coverimage;
+  }
+
+  .twemoji, .emoji {
+    max-width: 16px;
+    max-height: 16px;
+    padding-left: 3px;
+    vertical-align: middle;
+  }
+}
+

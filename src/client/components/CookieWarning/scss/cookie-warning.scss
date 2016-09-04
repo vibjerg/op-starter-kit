@@ -1,0 +1,27 @@
+.cookie-warning {
+  text-align: left;
+
+  img {
+    width: 100%;
+    padding-top: 25px;
+  }
+
+  .rounded-button {
+    display: block;
+    text-align: center;
+  }
+}
+
+.cookie-warning--svg {
+  text-align: center;
+  max-height: 50vh;
+
+  svg {
+    max-width: 100%;
+  }
+}
+
+.cookie-warning--header {
+  display: block;
+  font-weight: bold;
+}

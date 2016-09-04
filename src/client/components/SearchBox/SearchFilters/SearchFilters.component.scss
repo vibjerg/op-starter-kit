@@ -1,0 +1,49 @@
+@import 'tools';
+
+.search-filters {
+  list-style-type: none;
+  padding: 20px 20px 20px 0;
+  margin: 0;
+
+  @include max-screen($small-phone) {
+    padding: 3px 0 0 0;
+  }
+
+  .search-filters--button {
+    display: inline-block;
+    padding: 5px 20px;
+    margin-right: 3px;
+    background-color: $athens-gray;
+    svg {
+      fill: $governor-bay;
+    }
+
+    &.search-filters--button-active {
+      background-color: $governor-bay;
+      svg {
+        fill: $white;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $melrose;
+      svg {
+        fill: $white;
+      }
+    }
+
+  }
+
+  .search-filters--reset-button {
+    background-color: $white;
+    padding: 10px;
+    vertical-align: top;
+    display: inline-block;
+
+    &:hover {
+      color: $governor-bay;
+    }
+  }
+
+}

@@ -1,0 +1,76 @@
+@import "settings/colors";
+
+.search-area {
+  width: 100%;
+  position: relative;
+}
+
+.search-area--dropdown--link {
+  color: $dark;
+  white-space: nowrap;
+  margin-right: 2px;
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
+}
+
+.group {
+  .search-area--dropdown--link:after {
+    content: 'Gruppe';
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 5px;
+    color: $melrose-hover;
+  }
+}
+
+.group:hover, .group:active {
+  .search-area--dropdown--link:after {
+    color: $white;
+  }
+}
+
+.search-area--dropdown {
+  position: absolute;
+  background-color: $white;
+  border: $melrose-hover solid 1px;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  margin-right: 85px;
+  margin-left: 20px;
+}
+
+.searcharea--dropdown--list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+}
+
+.searcharea--dropdown--list--item {
+  overflow: hidden;
+  padding: 6px 10px 3px 10px;
+  left: 0;
+  right: 0;
+}
+
+.searcharea--dropdown--list--item:hover,
+.searcharea--dropdown--list--item--active {
+  background-color: $melrose-hover;
+  color: white;
+  cursor: pointer;
+
+  .search-area--dropdown--link {
+    color: white;
+  }
+}
+
+.searcharea--dropdown--list--item--link {
+  left: 0;
+  right: 0;
+}

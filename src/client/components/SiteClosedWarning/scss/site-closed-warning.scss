@@ -1,0 +1,30 @@
+@import 'tools';
+
+.site-closed-warning {
+  text-align: left;
+  margin-right: 10px;
+  margin-left: 10px;
+
+  .rounded-button {
+    margin-right: 0px;
+    margin-left: 0px;
+    display: block;
+    text-align: center;
+  }
+}
+
+.site-closed-warning--svg {
+  //text-align: center;
+
+  svg {
+    width: 100%;
+    use {
+      height: 100%;
+    }
+  }
+}
+
+.site-closed-warning--header {
+  display: block;
+  font-weight: bold;
+}

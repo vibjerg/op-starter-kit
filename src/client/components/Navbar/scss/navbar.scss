@@ -1,0 +1,85 @@
+@import 'tools';
+@import 'navbar-icons';
+
+.navbar {
+  @include span(24);
+  position: relative;
+}
+
+.navbar--container {
+  vertical-align: middle;
+  height: 80px;
+  background-color: $black;
+
+  @include max-screen($tablet) {
+    padding: 0px 20px 0px 20px;
+  }
+
+  @include min-screen($tablet + 1) {
+    position: relative;
+    z-index: 102;
+    padding: 0 20px;
+  }
+}
+
+.navbar--menu {
+  width: 100%;
+  .bibloLogo {
+    display: block;
+  }
+
+  .navbar--link {
+    @include max-screen(600px) {
+      display: none;
+    }
+  }
+
+  vertical-align: middle;
+  ul {
+    @extend %inline-list;
+    position: relative;
+    vertical-align: middle;
+    padding-top: 22px;
+  }
+  li {
+    &:first-child {
+      margin-left: 0;
+    }
+    margin-left: 20px;
+  }
+  a {
+    @extend %fredoka-header;
+    @include hover-transition((color: $melrose));
+  }
+}
+
+.navbar--icons {
+  position:absolute;
+  right: 1em;
+  top: 0;
+  padding-top: 20px;
+  text-align: right;
+  @include max-screen($tablet) {
+    margin-right: 43px;
+  }
+
+  a {
+    margin-left: 10px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  .navbar--link {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.navbar--profile, .navbar--search {
+  pointer-events: none;
+  vertical-align: middle;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+}

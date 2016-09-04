@@ -1,0 +1,36 @@
+{
+  "name": "op-starter-app",
+  "version": "1.0.0",
+  "description": "op-starter-app",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "webpack --progress --colors -p",
+    "build:dev": "webpack --progress --colors -d",
+    "dev": "parallelshell \"npm run start:watch -s\" \"npm run serve -s\"",
+    "lint": "eslint ./src",
+    "serve": "nodemon --exec node --no-stdin src/main.js",
+    "start:watch": "webpack --progress --colors --watch -d",
+    "test": "echo \"no tests included yet\"",
+    "tail": "tail -f log.log"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vibjerg/op-starter-kit.git"
+  },
+  "keywords": [
+    "openplatform",
+    "dbc"
+  ],
+  "author": "vibjerg",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/vibjerg/op-starter-kit/issues"
+  },
+  "homepage": "https://github.com/vibjerg/op-starter-kit#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "css-loader": "^0.24.0",
+    "sass-loader": "^4.0.1",
+    "webpack": "^1.13.2"
+  }
+}

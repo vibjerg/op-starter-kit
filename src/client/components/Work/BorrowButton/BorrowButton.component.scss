@@ -1,0 +1,149 @@
+@import "settings/colors";
+
+.modal-window--borrow-container {
+  padding: 5px;
+
+  .modal-window--borrow--types {
+    padding: 10px 0;
+  }
+
+  .modal-window--collection-item--container > label:hover {
+    background-color: #cac8f5;
+    color: $white;
+
+    .icon {
+      fill: currentColor;
+    }
+  }
+
+  .modal-window--collection-item--container > label {
+    vertical-align: middle;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    margin: 0;
+    color: #2a23a7;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 10pt;
+
+    .icon--container {
+      margin-right: 15px;
+    }
+
+    .icon {
+      fill: currentColor;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .modal-window--collection-item--container:first-child > label {
+    border-top: 2px solid #e4e4e4;
+  }
+
+  .modal-window--collection-item--container:last-child > label {
+    border-bottom: 2px solid #e4e4e4;
+  }
+
+  .modal-window--collection-item--name {
+    vertical-align: baseline;
+  }
+
+  input[name=mediaType] {
+    display: none;
+  }
+
+  input[name=mediaType] + label:after {
+    content: " ";
+    margin-right: 10px;
+    float: right;
+    border: 2px solid $white;
+    box-shadow: 0 0 0 3px $gray;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 4px;
+  }
+
+  input[name=mediaType]:checked + label:after {
+    background-color: $white;
+    box-shadow: 0 0 0 3px $white;
+    border: 2px solid $governor-bay;
+  }
+
+  input[name=mediaType]:checked + label {
+    color: $white;
+    background-color: $governor-bay;
+
+    .icon {
+      fill: currentColor;
+    }
+  }
+
+  .rounded-buttononlinelink {
+    display: inline-block;
+    margin: 10px auto;
+    padding-top: 10px;
+    padding-bottom: 33px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+    height: 12px;
+    border-radius: 5px;
+    background-color: #2acc94;
+    color: white;
+    border-style: none;
+    text-align: center;
+  }
+
+  .modal-window--borrow-submit-button {
+    margin: 10px auto;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #2acc94;
+    color: white;
+    border-style: none;
+  }
+
+  .modal-window--borrow-submit-button:hover {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: solid #2acc94;
+    background-color: #62edc6;
+  }
+
+  .modal-window--message-under-submit-button {
+    color: $gray !important;
+    font-size: 12pt;
+  }
+
+  .modal-window--work-details {
+    img {
+      width: 80px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+
+  div > a.rounded-button {
+    width: 90%;
+    display: block;
+    text-align: center;
+  }
+}

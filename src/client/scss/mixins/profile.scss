@@ -1,0 +1,15 @@
+@mixin profileImage($size: 50px) {
+  box-sizing: content-box;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 1px 1px 1px $gray;
+  overflow: hidden;
+  img {
+    object-fit: cover;
+    width: $size;
+    height: $size;
+  }
+
+}

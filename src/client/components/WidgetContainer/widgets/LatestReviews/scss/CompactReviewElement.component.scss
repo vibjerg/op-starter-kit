@@ -1,0 +1,179 @@
+@import 'tools';
+
+/**
+* @file
+* Styling of Reviews container on frontpage.
+*
+* This file makes use of the Susy span() function
+* @see https://github.com/oddbird/susy/blob/master/sass/susy/language/susy/_span.scss
+*/
+
+.compact-review--container--container {
+  @include span(18 of 24);
+  @include squish(1%, 2%);
+  float: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: $white;
+  display: inline-block;
+
+  @include min-screen($tablet) {
+    @include span(7 of 24);
+    @include squish(2.5%, 2%);
+    float: left;
+    height: 180px;
+  }
+
+  @include min-screen($desktop) {
+    height: 200px;
+  }
+}
+
+.compact-review--container {
+  @include span(7 of 7);
+  padding: 10px;
+  word-break: break-all;
+  white-space: normal;
+
+  .compact-review--review-author {
+    @include span(7 of 7);
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+    .twemoji {
+      width: 1em;
+    }
+  }
+
+  .compact-review--artwork--container {
+    @include span(3 of 7);
+    height: 145px;
+    position: relative;
+
+    @include min-screen($tablet) {
+      height: 130px;
+    }
+
+    @include min-screen($desktop) {
+      height: 145px;
+    }
+  }
+
+  .compact-review--cover-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .compact-review--review-content {
+    @include span(4 of 7 last);
+    height: 145px;
+
+    .rating {
+      cursor: default;
+    }
+  }
+
+  .compact-review--review-content--content {
+    overflow: hidden;
+    height: 120px;
+
+    @include min-screen($tablet) {
+      height: 100px;
+    }
+
+    @include min-screen($desktop) {
+      height: 120px;
+    }
+
+    a {
+      vertical-align: middle;
+    }
+  }
+
+  .compact-review-element--text-excerpt {
+    font-weight: 600;
+    color: $black;
+    word-break: normal;
+    font-size: 1em;
+  }
+
+  .compact-review-worktype-icon--container {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .compact-review-worktype-icon {
+    fill: $governor-bay;
+    padding: 4px;
+  }
+
+  .compact-review--owner-image--container {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 10;
+
+    img {
+      width: 45px;
+      height: 45px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid $white;
+    }
+  }
+
+  .compact-review--container--video-review--rating--container {
+    .rating {
+      display: inline-flex;
+      margin: 4px;
+      vertical-align: top;
+      cursor: default;
+    }
+  }
+
+  .compact-video-review--container {
+    position: relative;
+
+    .compact-review--owner-image--container {
+      top: 25px;
+      left: 25px;
+    }
+  }
+
+  .compact-review--video--container {
+    position: relative;
+    @include span(6 of 7);
+    margin-left: gutter(2);
+    height: 110px;
+    display: block;
+    margin-bottom: 5px;
+
+    img {
+      width: 200px;
+      height: 110px;
+      object-fit: cover;
+      background: url('/video_behandler.png') no-repeat center 0;
+      background-size: cover;
+    }
+
+    .after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 110px;
+      color: $white;
+      background: url('/images/video_thumbnail_overlay.png') no-repeat center 0;
+      background-size: cover;
+    }
+  }
+
+  .compact-video-review--artwork-container {
+    position: relative;
+  }
+}
+
+.compact-review--video-review-content--rating {
+  @include span(5 of 7 last);
+}

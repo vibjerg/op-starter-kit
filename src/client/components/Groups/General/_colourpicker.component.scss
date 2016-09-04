@@ -1,0 +1,72 @@
+@import "~susy/sass/susy";
+
+.colour-picker {
+  background-color: #fcfcfc;
+  max-width: 450px;
+
+  .colour-picker--item {
+    @include span(3.4 of 24);
+
+    .colour-picker--colour {
+      // Can\'t hide it because of accessibility, so just push it to the left.
+      left: -999999em;
+      position: absolute;
+    }
+
+    .colour-picker--colour:checked:focus + label {
+      display: block;
+      .colour-box {
+        border-color: #a0a0a0;
+      }
+    }
+
+    .colour-picker--colour:checked + label {
+      display: block;
+      .colour-box {
+        border-color: #a0a0a0;
+      }
+    }
+
+    .colour-picker--colour:focus + label {
+      .colour-box {
+        border-style: solid;
+        border-color: #950B02;
+      }
+    }
+
+    .colour-picker--label {
+      .colour-box {
+        height: 47px;
+        width: 47px;
+        border-style: solid;
+        border-color: #FFFFFF;
+        margin: 5px;
+        cursor: pointer;
+      }
+
+      .blue {
+        background-color: $governor-bay;
+      }
+
+      .blueish-green {
+        background-color: #38ceb6;
+      }
+
+      .red {
+        background-color: #f35065;
+      }
+
+      .light-purple {
+        background-color: #aba6ff;
+      }
+
+      .light-blue {
+        background-color: #60b0e9;
+      }
+
+      .yellow {
+        background-color: #fff100;
+      }
+    }
+  }
+}

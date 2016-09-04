@@ -1,0 +1,85 @@
+@import 'tools';
+
+.group--caption {
+  text-align: left;
+}
+
+.group--content {
+  position: relative;
+  .group--details, .group--post-add, .group--post-view-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include min-screen($desktop) {
+    @include span(16);
+  }
+
+  .expand-wrapper {
+    @include max-screen($tablet) {
+      text-align: center;
+    }
+
+    @include min-screen($tablet + 1) {
+      margin-left: 100px;
+    }
+  }
+
+  .expand-button {
+    border: 1px solid $light-gray;
+    @extend %fredoka-button;
+    svg {
+      fill: $melrose;
+    }
+  }
+}
+
+.group--details {
+  margin-right: 50px;
+}
+
+.group--actions {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  @include min-screen($desktop) {
+    top: 40px;
+  }
+}
+
+.group {
+  @include clearfix();
+  padding-bottom: 10px;
+
+  h2 {
+    @extend %h2-body;
+
+    .emoji {
+      width: 24px;
+    }
+  }
+  h3 {
+    @extend %h3-body;
+  }
+}
+
+.group--follow {
+  text-align: center;
+}
+
+.group--sidebar, .group--memberbox-header {
+  @include max-screen($desktop - 1px) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.group--description {
+  .emoji {
+    width: 24px;
+  }
+}
+
+
+.group-is-deleted {
+  @include errorbox('/group.svg');
+}

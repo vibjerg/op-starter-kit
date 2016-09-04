@@ -1,0 +1,6 @@
+/**
+ * @file
+ */
+
+describe('Test frontpage', () => {
+});

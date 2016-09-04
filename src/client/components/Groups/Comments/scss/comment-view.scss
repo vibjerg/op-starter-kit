@@ -1,0 +1,125 @@
+@import 'tools';
+
+.comment-wrapper {
+  @include clearfix();
+  @include max-screen($tablet - 1px) {
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  margin-bottom: 20px;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.comment {
+  position: relative;
+
+  @include min-screen($tablet) {
+    display: table;
+    width: 80%;
+    margin-left: 80px;
+    top: 0;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  @include max-screen($tablet - 1px) {
+    .comment--header {
+      margin-left: 80px;
+      min-height: 60px;
+      span {
+        padding: 0;
+        display: block;
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+  @include max-screen(1000px) {
+    .content-add--media-label {
+      display: none;
+    }
+
+    // small hack for getting all the breakpoints to work
+    .content-add--media label, .content-add--actions .button.alert {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+.comment--youtube-container {
+  position: relative;
+  padding-bottom: 50%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.comment--youtube-container iframe, .comment--youtube-container object, .comment--youtube-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.comment--header {
+  margin-right: 40px;
+  .username {
+    @extend %h3-body;
+  }
+  .time {
+    color: $gray;
+    display: inline-block;
+    padding-left: 10px;
+  }
+  .buttons {
+    display: inline;
+    float: right;
+  }
+}
+
+.comment--actions {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  svg {
+    fill: $gray;
+  }
+  .active svg {
+    fill: $melrose;
+  }
+}
+
+.comment--content {
+  word-wrap: break-word;
+}
+
+.comment-profile-image {
+  @include profileImage();
+  float: left;
+}
+
+.comment::before {
+  @include min-screen($tablet) {
+    top: 15px;
+    bottom: auto;
+    left: -15px;
+    border-width: 16px 16px 16px 0;
+    border-color: transparent $white;
+    content: "";
+    position: absolute;
+    border-style: solid;
+    display: block;
+    width: 0;
+  }
+}
+

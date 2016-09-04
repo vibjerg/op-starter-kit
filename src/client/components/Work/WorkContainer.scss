@@ -1,0 +1,20 @@
+@import 'tools';
+
+.work {
+  @include clearfix();
+  padding-bottom: 10px;
+}
+
+.work--reviewlist {
+  position: relative;
+  @include min-screen($desktop) {
+    @include span(16);
+  }
+}
+
+.work--moreinfo {
+  @include min-screen($desktop) {
+    @include span(8 last);
+    float: left
+  }
+}

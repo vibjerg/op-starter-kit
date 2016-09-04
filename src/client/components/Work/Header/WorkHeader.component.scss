@@ -1,0 +1,38 @@
+.work-header {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  height: 300px;
+  overflow: hidden;
+}
+
+.work-header--background-image {
+  width: 101%;
+  left: -5px;
+  top: -8px;
+  height: 220px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(5px) grayscale(30%);
+  box-shadow: 0 -20px white inset;
+  overflow: hidden;
+  position: absolute;
+  background-position: 50%;
+}
+
+.work-header--foreground-image--wrapper {
+  width: 150px;
+  margin: auto;
+}
+
+.work-header--foreground-image {
+  width: 150px;
+  position: absolute;
+  bottom: 70px;
+
+  img {
+    width: 150px;
+    box-shadow: 0 2px 20px #232323;
+    object-fit: cover;
+  }
+}

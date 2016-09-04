@@ -1,0 +1,50 @@
+@import "settings";
+@import "extends/font-styles";
+@import "extends/shakeit";
+
+
+/* Makes border-box properties */
+@include border-box-sizing;
+
+
+html, body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  @extend %body;
+}
+
+a {
+  text-decoration: none;
+  color: $melrose;
+}
+
+h2 {
+  @extend %fredoka-header;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  display: inline-block;
+  @include hover-transition((background: $melrose), 200ms, false);
+}
+
+svg {
+  pointer-events: none;
+}
+
+.twemoji, .emoji {
+  width: 24px;
+}
+
+.shakeit {
+  @extend %shakeit;
+}

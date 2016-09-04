@@ -1,0 +1,66 @@
+@import 'tools';
+
+.more-info {
+  @include span(24);
+  @include squish(15px);
+  padding-top: 20px;
+  padding-bottom: 50px;
+
+  @include min-screen($desktop){
+    @include squish(0);
+  }
+
+}
+
+.more-info--header {
+  font-family: $body-font;
+  font-size: 1.5em;
+  color: black;
+  padding-bottom: 10px;
+}
+
+.more-info--row {
+  @include span(24);
+  padding-bottom: 5px;
+}
+
+.more-info--type {
+  @include span(8);
+  color: $gray;
+
+  @include min-screen($tablet){
+    @include span(5);
+  }
+
+  @include min-screen($desktop){
+    @include span(9);
+  }
+}
+
+.more-info--content {
+  @include span(15);
+
+  @include min-screen($desktop){
+    @include span(14);
+  }
+}
+
+.more-info--material-types {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.more-info--material-type {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: $governor-bay;
+
+  .icon--container {
+    .icon {
+      fill: $governor-bay;
+    }
+    top: 12px;
+    margin-right: 8px;
+  }
+}
+

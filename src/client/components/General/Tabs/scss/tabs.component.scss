@@ -1,0 +1,101 @@
+@import 'tools';
+
+$border-color: #c9c9c9;
+$tab-bg-color-active: $white;
+$tab-bg-color-inactive: $governor-bay;
+
+.tabs-container {
+  width: 100%;
+  display: block;
+  margin-top: 20px;
+
+  ul.tabs {
+    list-style-type: none;
+    height: auto;
+    margin: 0;
+    padding: 0;
+
+    li {
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px 0;
+      margin: 0 2px;
+    }
+
+    .tab {
+      position: relative;
+      font-family: $header-font;
+      font-size: 16px;
+      letter-spacing: 1px;
+      background-color: $tab-bg-color-inactive;
+      border: $border-color solid 1px;
+      height: 100%;
+
+      .icon--container {
+        vertical-align: middle;
+      }
+
+      .icon {
+        margin-right: 0;
+
+        @include min-screen($tablet){
+          margin-right: 10px;
+        }
+
+      }
+
+      a {
+        color: white;
+      }
+
+      svg {
+        fill: currentColor;
+        height: 25px;
+        width: 25px;
+
+        @include min-screen($tablet){
+          height: 16px;
+          width: 16px;
+        }
+      }
+
+      &.active {
+        border: $border-color solid 1px;
+        border-bottom-color: white;
+        background-color: $tab-bg-color-active;
+
+        a {
+          color: black;
+        }
+      }
+
+      a {
+        padding: 10px 30px;
+
+        @include min-screen($tablet){
+          padding: 10px 20px;
+        }
+      }
+    }
+
+  }
+}
+
+.tab--notification-count {
+  @include notification-count();
+}
+
+.tab--label {
+  display: none;
+
+  @include min-screen($tablet){
+    display: inline-block;
+  }
+}
+
+.tabs--content {
+  min-height: 100px;
+  border-top: $border-color solid 1px;
+  margin-top: -1px;
+  padding: 10px 0 5px 0;
+}

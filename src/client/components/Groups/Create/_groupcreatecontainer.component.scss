@@ -1,0 +1,9 @@
+@import 'tools';
+
+.group-create {
+  @include container;
+
+  h1 {
+    text-align: center;
+  }
+}

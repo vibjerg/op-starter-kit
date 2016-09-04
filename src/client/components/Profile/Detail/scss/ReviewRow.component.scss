@@ -1,0 +1,156 @@
+@import "tools";
+
+.review--container {
+  border-bottom: #e8e8e8 5px solid;
+  padding: 10px;
+  position: relative;
+
+  @include min-screen($tablet) {
+    height: 180px;
+    border-bottom-width: 1px;
+  }
+}
+
+.review--header {
+  position: relative;
+
+  @include min-screen($tablet) {
+    height: 100%;
+    width: 45%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+.review--material--cover {
+  display: inline-block;
+  vertical-align: top;
+  width: 35%;
+  height: inherit;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.ratings {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+
+  .rating {
+    cursor: default;
+  }
+}
+
+.review--data {
+  display: inline-block;
+  margin-left: 15px;
+  width: 43%;
+
+  @include min-screen($desktop) {
+    margin-left: 10px;
+  }
+}
+
+.review--data--profilepic {
+  @include profileImage();
+
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px 10px 0;
+}
+
+.review--data--username {
+  display: inline-block;
+  vertical-align: middle;
+  width: 65%;
+}
+
+.review--data--material-title {
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 40px;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.review--content--container {
+  vertical-align: top;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  @include min-screen($tablet) {
+    height: 100%;
+    width: 40%;
+  }
+}
+
+.review--content {
+  margin: 10px 0;
+  overflow: hidden;
+  max-height: 100px;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+
+  @include min-screen($tablet){
+    margin: 0;
+  }
+}
+
+.review--content--videoplayer {
+  height: inherit;
+  display: inline-block;
+
+  img {
+    max-width: 100%;
+
+    @include min-screen($tablet) {
+      max-height: 130px;
+      max-width: 100%;
+    }
+  }
+}
+
+.review--content--campaign {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.review--content--actions {
+  text-align: center;
+
+  @include min-screen($tablet) {
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    width: 140%;
+  }
+
+  a {
+    margin: 0;
+  }
+
+  .simple-button {
+    display: inline-block;
+    padding: 8px 25px;
+  }
+}
+
+.review--content--actions--likebutton {
+  margin-top: 10px;
+
+  @include min-screen($tablet) {
+    margin-left: 20px;
+    margin-bottom: 0;
+    display: inline-block;
+  }
+}

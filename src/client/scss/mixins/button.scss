@@ -1,0 +1,30 @@
+@import 'hover-transition';
+@import 'no-selection';
+@import '../settings/colors';
+@import '../settings/breakpoints';
+@import 'media-queries';
+
+
+@mixin button($background: $melrose, $color: white, $lighten: false, $hoverColor: false) {
+  padding: 8px 30px;
+  @include max-screen($tablet - 1px) {
+    padding: 8px 15px;
+  }
+  border-radius: 5px;
+  color: $color;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  svg {
+    fill: $color;
+    margin-right: 10px;
+    @include max-screen($tablet - 1px) {
+      padding-right: 5px;
+    }
+    position: relative;
+    display: inline-block;
+    top: 2px;
+  }
+  @include hover-transition((background: $background), 200ms, $lighten, $hoverColor);
+  @include no-selection();
+}

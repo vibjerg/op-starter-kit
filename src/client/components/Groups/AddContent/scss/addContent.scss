@@ -1,0 +1,315 @@
+@import 'tools';
+
+.content-add {
+  margin-bottom: 20px;
+}
+
+.content-add--input {
+  border: $light-gray 1px solid;
+}
+
+.content-add--textarea {
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  min-height: 100px;
+  outline: none;
+  &::placeholder {
+    color: $gray;
+  }
+  &:focus::placeholder {
+    color: $light-gray;
+  }
+}
+
+.content-add--preview-image {
+  position: relative;
+  display: inline-block;
+  background-color: $dark;
+  border: 3px solid white;
+  box-shadow: 1px 1px 1px $gray;
+  img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  a {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+  svg {
+    fill: $light-gray;
+  }
+
+  &:hover {
+    filter: grayscale(80%);
+    img {
+      opacity: 0.5;
+    }
+    a {
+      display: inline-block;
+      &:hover svg{
+        fill: $white;
+      }
+    }
+  }
+}
+
+.content-add--upload-media {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  display: inline-block;
+}
+
+.content-add--actions {
+  margin-top: 10px;
+  .button {
+    float: right;
+    &.submit {
+      @include button($melrose);
+
+      @include max-screen($tablet) {
+        margin: 10px 0;
+        width: 100%;
+      }
+    }
+    &.alert {
+      @include button($carnation);
+      margin-right: 10px;
+    }
+    &.delete {
+      @include button($carnation);
+      margin-right: 10px;
+      float: none;
+    }
+  }
+}
+
+.preview-video--name {
+  font-size: 14px;
+}
+
+progress[value] {
+  width: 100%;
+  appearance: none;
+
+  &::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+
+  &::-moz-progress-bar {
+    background-color: #6085c5;
+  }
+
+  &::-webkit-progress-value {
+    background-color: #6085c5;
+    //background-color: #5FC55F;
+  }
+
+  &.done {
+    &::-moz-progress-bar {
+      background-color: #5FC55F;
+    }
+
+    &::-webkit-progress-value {
+      background-color: #5FC55F;
+    }
+  }
+
+  &.error {
+    &::-moz-progress-bar {
+      background-color: #c52f3e;
+    }
+
+    &::-webkit-progress-value {
+      background-color: #c52f3e;
+    }
+  }
+}
+
+.content-add--media {
+  display: inline-block;
+
+  label {
+    @include button($athens-gray, $melrose, false);
+    border: 1px solid $light-gray;
+  }
+  svg {
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+    top: 2px;
+  }
+}
+
+.content-add--media-label {
+  pointer-events: none;
+  @include max-screen($desktop - 1px) {
+    display: none;
+  }
+}
+
+.content-add--messages {
+  opacity: 0;
+  @include single-transition(opacity, 500ms, null, null);
+  &.fadein {
+    opacity: 1;
+  }
+}
+
+.preview-review {
+  div {
+    display: inline-flex;
+    vertical-align: middle;
+  }
+
+  .preview-review--remove-btn {
+    vertical-align: top;
+  }
+
+  padding: 5px;
+  border: 1px solid #c6c6c6;
+  box-shadow: 1px 1px 1px $gray;
+  display: inline-block;
+}
+
+.preview-review--cover-image--container {
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+  }
+}
+
+.preview-review--title--container {
+  margin-left: 5px;
+}
+
+.insert-review-button {
+  @include hover-transition((background: $athens-gray), 200ms, false);
+
+  background-color: $athens-gray;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+  padding: 8px 30px;
+  margin: 0 10px;
+  cursor: pointer;
+
+  img {
+    vertical-align: middle;
+  }
+
+  .attach-review-button--text {
+    @include max-screen($tablet) {
+      display: none;
+    }
+  }
+}
+
+.insert-review-button:hover {
+  border-color: $melrose;
+}
+
+
+.attached-review--container {
+  .review--content {
+    max-height: 60px;
+    line-height: 20px;
+    display: inline-block;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    width: 100%;
+  }
+}
+
+
+/* BEGIN attach review modal window styles */
+.attach-review-modal--review-content {
+  max-height: 60px;
+  line-height: 20px;
+  display: inline-block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  width: 100%;
+
+  @include max-screen($tablet) {
+    display: none;
+  }
+}
+
+.attach-review-modal--review-row--container {
+  tr {
+    cursor: pointer;
+  }
+
+  border-bottom: 2px solid #eee;
+  margin-bottom: 10px;
+}
+
+.attach-review-modal--review--content-container {
+  vertical-align: top;
+
+  @include min-screen($tablet) {
+    width: 330px;
+  }
+}
+
+.attach-review-modal--review--title-and-creator {
+  vertical-align: top;
+}
+
+.attach-review-modal--buttons-container {
+  width: 100%;
+
+  .rounded-button {
+    text-align: center;
+    left: 0;
+    right: 0;
+    width: auto;
+    display: block;
+  }
+}
+
+.attach-review-modal--review--cover-image {
+  img {
+    width: 60px;
+  }
+}
+
+.attach-review-modal--radio-btn-input {
+  display: none;
+}
+
+.attach-review-modal--radio-btn-input:checked + span:before {
+  background-color: #1c14a1;
+  box-shadow: 0 0 0 3px #1c14a1;
+}
+
+.attach-review-modal--radio-btn-input + span:before {
+  content: " ";
+  border: 2px solid $white;
+  box-shadow: 0 0 0 3px $gray;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+/* END attach review modal window styles */

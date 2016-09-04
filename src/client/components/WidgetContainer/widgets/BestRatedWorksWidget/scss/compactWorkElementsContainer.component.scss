@@ -1,0 +1,24 @@
+@import 'tools';
+
+.compact-works--container {
+  @include span(24);
+  margin-bottom: 40px;
+  -webkit-overflow-scrolling: touch;
+
+  &.closed {
+    height: 250px;
+    overflow: hidden;
+
+    @include max-screen($tablet - 1) {
+      overflow-x: scroll;
+      display: block;
+      white-space: nowrap;
+    }
+  }
+
+  .compact-works--spinner-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+}

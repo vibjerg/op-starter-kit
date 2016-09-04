@@ -1,0 +1,39 @@
+@mixin result-list($device: 'phone') {
+  @if ($device == 'phone') {
+    @include gallery(1 of 2);
+    height: 320px;
+  }
+  @else {
+    @include gallery(1 of 5);
+  }
+
+  .cover-image {
+    min-height: 230px;
+    position: relative;
+    height: auto;
+    img {
+      position: absolute;
+      bottom: 10px;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      box-shadow: #666 0 2px 12px;
+    }
+  }
+
+  .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 5.2em;
+    .icon--container {
+      padding-right: 5px;
+      vertical-align: middle;
+      .icon {
+        fill: currentColor;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import 'tools';
+
+.profile-edit--container {
+  @include clearfix;
+}
+
+.profile-edit--title {
+  font-family: $body-font;
+  font-size: 32pt;
+  text-align: center;
+  font-weight: 600;
+}
+
+.before-profile-edit--form-component-container, .after-profile-edit--form-component-container {
+  @include min-screen($tablet) {
+    @include span(6);
+  }
+}
+
+.profile-edit--form-component-container {
+  @include min-screen($tablet) {
+    @include span(12);
+  }
+
+  border: #bebebe solid;
+  border-radius: 5px;
+}

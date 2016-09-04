@@ -1,0 +1,26 @@
+@import 'tools';
+.review-list {
+  h1, h2, h3, h4, h5, h6, p {
+    font-family: $body-font;
+    text-transform: none;
+    color: black;
+  }
+}
+
+.reviews--showmore-container {
+  a {
+    float: right;
+    cursor: pointer;
+    font-family: $header-font;
+    color: $black;
+    margin: 20px;
+  }
+
+  h2 {
+    display: inline-block;
+  }
+
+  .icon {
+    fill: #938ee9;
+  }
+}

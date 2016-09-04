@@ -1,0 +1,52 @@
+// @file
+// Contains generic font classes
+
+@import 'settings';
+
+%fredoka-header {
+  font-family: $header-font;
+  color: $melrose;
+  text-transform: uppercase;
+  font-size: 1.222em; // = 22px;
+  letter-spacing: 2px;
+}
+
+%fredoka-button {
+  font-family: "Fredoka One", arial;
+  text-transform: uppercase;
+  font-size: 0.833em; // = 15px
+  letter-spacing: 1.2px;
+}
+
+%inline-list {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  li {
+    display: inline-block;
+  }
+}
+
+%h2-body {
+  font-family: $body-font;
+  font-size: 1.778em; // = 32px
+  @include max-screen(600px) {
+    font-size: 1.111em; // = 20px
+  }
+  color: $dark;
+  text-transform: none;
+}
+
+%h3-body {
+  font-family: $body-font;
+  font-size: 1.111em; // = 20px
+  color: $melrose;
+  text-transform: none;
+}
+
+%body {
+  font-family: $body-font;
+  font-size: 100%;
+  color: $dark;
+}
