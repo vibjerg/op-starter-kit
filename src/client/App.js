@@ -8,10 +8,9 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import SocketClient from 'dbc-node-serviceprovider-socketclient';
-import {callServiceProvider} from './Constants/action.constants';
+import SocketClient from './State/Utils/Sockets';
 
-import rootReducer from './Reducers/root.reducer';
+import rootReducer from './State/Reducers/root.reducer';
 
 /**
  * Service Provider middleware for redux, use this to call the service provider from a plain action.
@@ -28,33 +27,18 @@ import rootReducer from './Reducers/root.reducer';
  * @returns {function(): function()}
  */
 export function serviceProviderReduxMiddleware({dispatch}) {
-  // This object contains our existing clients to prevent listener overflows.
-  let clients = {};
+  const response = SocketClient.on('response', ({event, params, response}) => {
+    console.log(event, params, response);
+    dispatch({
+      type: event,
+      params,
+      response
+    })
+  });
+
+  console.log('should only be called once');
 
   return next => action => {
-    // First we check that the action type is correct
-    if (action.type === 'call') {
-
-      // We then extract the request data or query from the action
-      const requestData = action.data || {};
-
-      // We ensure the action has the required properties.
-      if (!action.event) {
-        throw new Error('Cannot call service provider without an event.');
-      }
-
-      // And also ensure reuse of socketclients to prevent excess listeners.
-      if (!clients[action.event]) {
-        clients[action.event] = SocketClient(action.event);
-        clients[action.event].response(function (data) {
-          dispatch({type: `${action.event}Response`, data});
-        });
-      }
-
-      // And finally we dispatch the request.
-      clients[action.event].request(requestData);
-    }
-
     return next(action);
   };
 }

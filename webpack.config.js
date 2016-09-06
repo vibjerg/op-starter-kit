@@ -6,17 +6,17 @@ var extractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 var noErrorsPlugin = new webpack.NoErrorsPlugin();
-var extractCss = new extractTextPlugin('../css/[name].css', {allChunks: true});
+var extractCss = new extractTextPlugin('./[name].css', {allChunks: true});
 
 module.exports = [{
   name: 'browser',
 
   entry: {
-    app: './src/client/app.js'
+    app: './src/client/index.js'
   },
 
   output: {
-    path: path.join(__dirname, 'public/js'),
+    path: path.join(__dirname, 'public'),
     filename: '[name].js'
   },
   module: {
