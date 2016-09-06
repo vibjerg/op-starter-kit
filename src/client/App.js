@@ -33,7 +33,7 @@ export function serviceProviderReduxMiddleware({dispatch}) {
 
   return next => action => {
     // First we check that the action type is correct
-    if (action.type === callServiceProvider) {
+    if (action.type === 'call') {
 
       // We then extract the request data or query from the action
       const requestData = action.data || {};
