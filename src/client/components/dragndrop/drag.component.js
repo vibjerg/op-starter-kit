@@ -40,16 +40,16 @@ class Drag extends React.Component {
     window.addEventListener('mousemove', this.onMouseMove);
   }
   onMouseUp (e) {
+    console.log('hep hep up');
     this.props.actions.ui('drop');
     e.preventDefault();
     window.removeEventListener('mousemove', this.onMouseMove);
     const pos = this.refs.dragging.getBoundingClientRect();
-    console.log(pos);
   }
 
   render() {
     return (
-      <div className={`dragable ${this.state.dragging && 'dragging' || ''}`} ref="dragging" onMouseDown={e => this.onMouseDown(e)} onMouseUp={e => this.onMouseUp(e)} style={this.state.pos}>
+      <div className={`dragnprop ${this.state.dragging && 'dragging' || ''}`} ref="dragging" onMouseDown={e => this.onMouseDown(e)} onMouseUp={e => this.onMouseUp(e)} style={this.state.pos}>
         {this.props.children}
       </div>
     );

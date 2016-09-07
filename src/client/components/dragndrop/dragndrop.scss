@@ -1,6 +1,9 @@
-.dragging {
-  position: fixed;
-  & * {
-    pointer-events: none;
+.dragnprop {
+  &.dragging {
+    position: fixed;
+    & * {
+      //pointer-events: none;
+    }
   }
 }
+
