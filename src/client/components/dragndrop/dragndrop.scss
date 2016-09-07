@@ -1,0 +1,6 @@
+.dragging {
+  position: fixed;
+  & * {
+    pointer-events: none;
+  }
+}

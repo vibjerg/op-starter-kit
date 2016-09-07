@@ -1,8 +1,10 @@
 import React from 'react';
+import connect from '../../State/connect';
+
 
 import './dragndrop.scss';
 
-export default class DragNdrop extends React.Component {
+class Drag extends React.Component {
 
   constructor(props) {
     super(props);
@@ -13,6 +15,7 @@ export default class DragNdrop extends React.Component {
         left: 0
       }
     }
+    this.onMouseMove = this.onMouseMove.bind(this);
   }
   onMouseMove(e) {
     this.setState({pos: {
@@ -22,6 +25,7 @@ export default class DragNdrop extends React.Component {
   }
 
   onMouseDown (e) {
+    this.props.actions.ui('drag', this.props.children);
     e.preventDefault();
     const pos = this.refs.dragging.getBoundingClientRect();
     this.diff = {
@@ -33,11 +37,12 @@ export default class DragNdrop extends React.Component {
         top: e.clientY + this.diff.y
     }});
 
-    window.addEventListener('mousemove', this.onMouseMove.bind(this));
-    console.log(pos);
+    window.addEventListener('mousemove', this.onMouseMove);
   }
   onMouseUp (e) {
-    window.removeEventListener('mousemove', this.onMouseMove.bind(this));
+    this.props.actions.ui('drop');
+    e.preventDefault();
+    window.removeEventListener('mousemove', this.onMouseMove);
     const pos = this.refs.dragging.getBoundingClientRect();
     console.log(pos);
   }
@@ -50,3 +55,6 @@ export default class DragNdrop extends React.Component {
     );
   }
 }
+
+
+export default connect(Drag);
