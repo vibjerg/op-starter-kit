@@ -28,15 +28,12 @@ import rootReducer from './State/Reducers/root.reducer';
  */
 export function serviceProviderReduxMiddleware({dispatch}) {
   const response = SocketClient.on('response', ({event, params, response}) => {
-    console.log(event, params, response);
     dispatch({
-      type: event,
-      params,
-      response
+      type: 'request',
+      action: event,
+      data: {params, response}
     })
   });
-
-  console.log('should only be called once');
 
   return next => action => {
     return next(action);

@@ -9,13 +9,15 @@ class Drag extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dragging: false,
+      dragging: props.dragging || false,
       pos: {
         top: 0,
         left: 0
       }
-    }
+    };
+    this.diff ={x: -10, y:-10};
     this.onMouseMove = this.onMouseMove.bind(this);
+    this.onMouseUp = this.onMouseUp.bind(this);
   }
   onMouseMove(e) {
     this.setState({pos: {
@@ -38,18 +40,31 @@ class Drag extends React.Component {
     }});
 
     window.addEventListener('mousemove', this.onMouseMove);
+    window.addEventListener('mouseup', this.onMouseUp);
   }
   onMouseUp (e) {
-    console.log('hep hep up');
-    this.props.actions.ui('drop');
     e.preventDefault();
     window.removeEventListener('mousemove', this.onMouseMove);
-    const pos = this.refs.dragging.getBoundingClientRect();
+    window.removeEventListener('mouseup', this.onMouseUp);
+  }
+
+  componentDidMount() {
+    if (this.state.dragging) {
+      this.props.actions.ui('drag', this.props.children);
+      window.addEventListener('mousemove', this.onMouseMove);
+      window.addEventListener('mouseup', this.onMouseUp);
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.actions.ui('drop');
+    window.removeEventListener('mousemove', this.onMouseMove);
+    window.removeEventListener('mouseup', this.onMouseUp);
   }
 
   render() {
     return (
-      <div className={`dragnprop ${this.state.dragging && 'dragging' || ''}`} ref="dragging" onMouseDown={e => this.onMouseDown(e)} onMouseUp={e => this.onMouseUp(e)} style={this.state.pos}>
+      <div className={`dragndrop ${this.state.dragging && 'dragging' || ''}`} ref="dragging" onMouseDown={e => this.onMouseDown(e)} style={this.state.pos}>
         {this.props.children}
       </div>
     );

@@ -1,9 +1,19 @@
-.dragnprop {
+.dragndrop {
+  cursor: pointer;
   &.dragging {
     position: fixed;
+    box-shadow: 5px 5px 10px #222;
+    border-radius: 5px;
+    padding: 2em;
     & * {
-      //pointer-events: none;
+      pointer-events: none;
+      cursor: pointer;
     }
   }
 }
 
+.draggable-widget {
+  user-select: none;
+  cursor: pointer;
+
+}

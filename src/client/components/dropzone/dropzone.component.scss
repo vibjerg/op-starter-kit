@@ -1,0 +1,16 @@
+.dropzone {
+  width: 100%;
+  min-height: 100px;
+  border-radius: 5px;
+  &.dragging {
+    border: 4px dashed;
+    border-color: red;
+  }
+  &.dragging.hover {
+    border-color: blue;
+  }
+  .dropzone {
+    padding: 1em;
+    min-height: 0;
+  }
+}

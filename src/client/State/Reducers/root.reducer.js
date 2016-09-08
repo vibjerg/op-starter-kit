@@ -15,18 +15,12 @@ import coverImageReducer from './coverImages.reducer';
 import globalReducer from './globalContent.reducer';
 
 import pagebuilder from './pagebuilder.reducer';
+import requests from './request.reducer';
 
 const rootReducer = combineReducers({
-  agencyReducer,
-  uiReducer,
-  searchReducer,
-  entitySuggestReducer,
-  reviewReducer,
-  widgetReducer,
-  coverImageReducer,
-  globalReducer,
-  work: workReducer,
-  ui: pagebuilder
+
+  ui: pagebuilder,
+  data: requests
 });
 
 export default rootReducer;

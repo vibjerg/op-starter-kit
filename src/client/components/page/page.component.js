@@ -1,53 +1,27 @@
 import React from 'react';
+import Widgets from '../widgets/widgets.list';
 
-import connect from '../../State/connect';
-import TestOne from '../widgets/testOne.component';
-import TestTwo from '../widgets/testTwo.component';
-
-const widgetsComponents = {
-  testOne: connect(TestOne),
-  testTwo: connect(TestTwo)
-};
-
-const props = [{
-  component: 'testWrapper',
-  children: [
-    {
-      component: 'testOne'
-    },
-    {
-      component: 'testTwo'
-    }
-  ],
-}];
-
-function parseComponents(elements) {
-  elements.map(element => {
-    const component = widgetsComponents[element.component];
-    const children = element.children && parseComponents(element.children) || null
-    return React.createElement(component, {children});
+function parseComponents(elements, path) {
+  return elements.map((element, i) => {
+    const key = `${path}.${i}.children`;
+    const component = Widgets.get(element.component);
+    const children = element.children && parseComponents(element.children, key) || null;
+    return React.createElement(component, {key}, children);
   });
 }
 
 
 export default class Page extends React.Component {
-  constructor() {
-    super(props);
-    this.state = {
-      widgets : [],
+  componentDidMount() {
+    if (!this.props.ui.pages[this.props.id]) {
+      this.props.actions.ui('addPage', this.props.id);
     }
-  }
-
-  onSelect(name) {
-    this.state.widgets.push(widgetsComponents[name]);
-
-    this.setState({widgets: this.state.widgets});
   }
 
   render(){
     return (
       <div className="page">
-        {parseComponents(this.props)}
+        {parseComponents(this.props.ui.pages[this.props.id] || [], this.props.id)}
       </div>
     );
   }

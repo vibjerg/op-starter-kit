@@ -5,3 +5,8 @@ export default function testTwo() {
     <div>Dette er den anden test</div>
   );
 }
+
+testTwo.widgetize = {
+  name: 'testTwo',
+  connect: true,
+};

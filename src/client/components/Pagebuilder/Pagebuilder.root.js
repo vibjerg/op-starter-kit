@@ -1,50 +1,45 @@
 import React from 'react';
-import WidgetPresenter from '../widgetPresenter/widgetPresenter.component';
+import WidgetList from '../widgetlist/widgetlist.component';
 import DropZone from '../dropzone/dropzone.component';
-
-import TestOne from '../widgets/testOne.component';
-import TestTwo from '../widgets/testTwo.component';
+import PageComponent from '../page/page.component';
+import PageDropperComponent from '../page/pageDropper.component';
 import connect from '../../State/connect';
 
-/*import {Provider} from 'redux-react';
-import rootReducer from ''
+const Page = connect(PageComponent);
+const PageDropper = connect(PageDropperComponent);
 
-const store = createStore(rootReducer);
-const component = (
-  <Provider store={store}>
-    <Comp />
-  </Provider>
-);*/
-
-
-const widgetsComponents = {
-  testOne: connect(TestOne),
-  testTwo: connect(TestTwo)
-};
 
 export default class PageBuilder extends React.Component {
-  constructor(props) {
+
+  constructor(props){
     super(props);
     this.state = {
-      widgets : [],
+      preview: false
     }
   }
 
-  onSelect(name) {
-    this.state.widgets.push(widgetsComponents[name]);
+  renderDropper() {
+    return (
+      <DropZone id="testzone">
+        <PageDropper id="testzone"/>
+      </DropZone>
+    );
+  }
 
-    this.setState({widgets: this.state.widgets});
+  renderPreview() {
+    return(
+      <Page id="testzone"></Page>
+    );
   }
 
   render(){
     return (
-      <div>
-        <WidgetPresenter select={(name) => this.onSelect(name)}/>
-        <DropZone id="testzone"></DropZone>
-        <div className="page-container">
-          {this.state.widgets.map((element, key)=> {
-            return React.createElement(element, {key});
-          })}
+      <div className="pagebuilder">
+
+        <WidgetList />
+        <input type="checkbox" defaultValue={false} onChange={e => this.setState({preview: !this.state.preview})}/>
+        <div className="builder">
+          {this.state.preview && this.renderPreview() || this.renderDropper()}
         </div>
 
       </div>
