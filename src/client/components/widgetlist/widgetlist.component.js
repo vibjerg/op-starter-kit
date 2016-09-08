@@ -24,21 +24,21 @@ class ActivateDragableWidget extends React.Component {
   }
 
   renderActive() {
-    const component = React.createElement(this.props.widget, {key: this.props.widget.widgetize.name, drag:true});
-    //console.log(component);
-    //component.widgetize = this.props.widget.widgetize;
+    const props = Object.assign({}, this.props.defaults);
+    const Comp = this.props.admin;
     return (
-      <Drag dragging={true}>
-        {component}
+      <Drag dragging={true} item={this.props}>
+        <Comp {...this.props.defaults} />
       </Drag>
     );
   }
 
   renderPassive() {
-    return <div onMouseDown={this.onMouseDown} className="widget">{this.props.widget.widgetize.name}</div>;
+    return <div onMouseDown={this.onMouseDown} className="widget">{this.props.name}</div>;
   }
 
   render() {
+    console.log(JSON.stringify(this.props));
     return (
       <div className="draggable-widget">
         {this.renderPassive()}
@@ -53,7 +53,8 @@ class ActivateDragableWidget extends React.Component {
 export default function WidgetList() {
   const widgets = [];
   Widgets.forEach(widget => {
-    widgets.push(React.createElement(ActivateDragableWidget, {widget, key: widget.widgetize.name}));
+    console.log(JSON.stringify(widget));
+    widgets.push(React.createElement(ActivateDragableWidget, widget));
   });
   return (
     <div className="widgetlist">

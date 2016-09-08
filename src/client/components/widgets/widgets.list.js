@@ -1,23 +1,15 @@
 import connect from '../../State/connect';
 
-import TestOne from './testOne.component';
-import TestTwo from './testTwo.component';
 import Gridlist from './gridlist.component';
-import Search from './search.widget';
-import SearchResult from './searchResultWrapper.widget';
-import Work from './work.widget';
-
+import SearchField from './search.widget';
 
 const widgets = new Map();
 
-function setupWidget(element) {
- if (element.widgetize) {
-   const settings = element.widgetize;
-   const component = settings.connect && connect(element) || element;
-   widgets.set(settings.name, component);
- }
+function setupWidget(widget) {
+  widget.admin = connect(widget.admin);
+   widgets.set(widget.name, widget);
 }
 
-[TestOne, TestTwo, Search, SearchResult, Gridlist, Work].map(setupWidget);
+[Gridlist, SearchField].map(setupWidget);
 
 export default widgets;

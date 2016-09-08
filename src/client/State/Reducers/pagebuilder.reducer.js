@@ -23,7 +23,7 @@ methods.drop = (state, data) => {
   const newstate = {dragging: null};
   if (state.dropzone) {
     newstate.pages = Object.assign({}, state.pages);
-    DotLokate(state.dropzone, newstate.pages).push({component: state.dragging.key, children: []});
+    DotLokate(state.dropzone, newstate.pages).push({component: state.dragging.name, config: {}});
   }
 
   return newstate;
@@ -57,9 +57,11 @@ methods.query = (state, query) => {
 };
 
 
+const testPages = {
+  //testzone: JSON.parse('[{"component":"search","children":[]},{"component":"GridList","children":[{"component":"work","children":[]}]}]'),
+}
 
-
-export default function uiReducer (state = {pages:[], search:{}}, action = {}) {
+export default function uiReducer (state = {pages:testPages, search:{}}, action = {}) {
 
   if (action.type !== 'ui') {
     return state;

@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function SearchWidget(props) {
+function SearchWidget(props) {
 
   return (
     <div className="search widget">
-      <form action="" onSubmit={(e) => {e.preventDefault(); props.actions.request('search', {q: props.ui.search.query})}}>
+      <form action="" onSubmit={(e) => {e.preventDefault(); props.actions.request('search', {q: props.ui.search.query, limit:20})}}>
         <input type="text" value={props.ui.search.query || ''} onChange={e => props.actions.ui('query', e.currentTarget.value)} />
         <input type="submit" value="Søg"/>
       </form>
@@ -12,7 +12,7 @@ export default function SearchWidget(props) {
   );
 }
 
-SearchWidget.widgetize = {
+export default {
   name: 'search',
-  connect: true
+  admin: SearchWidget
 };

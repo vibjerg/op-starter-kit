@@ -2,7 +2,7 @@ import React from 'react';
 import WidgetList from '../widgetlist/widgetlist.component';
 import DropZone from '../dropzone/dropzone.component';
 import PageComponent from '../page/page.component';
-import PageDropperComponent from '../page/pageDropper.component';
+import PageDropperComponent from '../page/widgetComposer.component';
 import connect from '../../State/connect';
 
 const Page = connect(PageComponent);

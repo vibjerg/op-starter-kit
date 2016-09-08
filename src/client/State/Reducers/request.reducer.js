@@ -6,12 +6,13 @@ const methods = {};
 
 const defaultState = {
   search: {
-    result: []
+    result: [],
+    images: []
   }
 }
 
 methods.search = (state, {params, response}) => {
-  const search = {result: response.data};
+  const search = {result: response.data, images: response.data.filter(i => i.coverUrlFull)};
   return {search}
 };
 

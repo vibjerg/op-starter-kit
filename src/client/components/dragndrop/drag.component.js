@@ -27,7 +27,7 @@ class Drag extends React.Component {
   }
 
   onMouseDown (e) {
-    this.props.actions.ui('drag', this.props.children);
+    this.props.actions.ui('drag', this.props.item);
     e.preventDefault();
     const pos = this.refs.dragging.getBoundingClientRect();
     this.diff = {
@@ -50,7 +50,7 @@ class Drag extends React.Component {
 
   componentDidMount() {
     if (this.state.dragging) {
-      this.props.actions.ui('drag', this.props.children);
+      this.props.actions.ui('drag', this.props.item);
       window.addEventListener('mousemove', this.onMouseMove);
       window.addEventListener('mouseup', this.onMouseUp);
     }
